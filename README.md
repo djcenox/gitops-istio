@@ -233,7 +233,7 @@ Flagger will route all traffic to the primary pods and scale to zero the `fronte
 Find the Istio ingress gateway address with:
 
 ```bash
-kubectl -n istio-system get svc istio-ingressgateway -ojson | jq .status.loadBalancer.ingress
+kubectl -n istio-system get svc istio-gateway -ojson | jq .status.loadBalancer.ingress
 ```
 
 Open a browser and navigate to the ingress address, you'll see the frontend UI.
