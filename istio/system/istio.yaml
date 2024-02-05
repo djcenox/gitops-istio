@@ -42,6 +42,7 @@ spec:
   releaseName: istiod
   dependsOn:
     - name: istio-base
+      namespace: istio-system
   chart:
     spec:
       version: "${version}"
@@ -68,15 +69,17 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: istio-gateway
-  namespace: istio-system
+  name: istio-ingress
+  namespace: istio-ingress
   labels:
     app.kubernetes.io/part-of: istio
 spec:
   releaseName: istio-gateway
   dependsOn:
     - name: istio-base
+      namespace: istio-system
     - name: istiod
+      namespace: istio-system
   chart:
     spec:
       version: "${version}"
